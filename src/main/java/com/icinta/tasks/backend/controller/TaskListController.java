@@ -25,7 +25,7 @@ public class TaskListController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<TaskList> getTaskListById(@PathVariable Long id) {
+    public ResponseEntity<TaskList> getTaskListById(@PathVariable String id) {
         return ResponseEntity.ok(taskListService.getTaskListById(id));
     }
 
@@ -35,12 +35,12 @@ public class TaskListController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TaskList> updateTaskList(@PathVariable Long id, @RequestBody TaskList updatedTaskList) {
+    public ResponseEntity<TaskList> updateTaskList(@PathVariable String id, @RequestBody TaskList updatedTaskList) {
         return ResponseEntity.ok(taskListService.updateTaskList(id, updatedTaskList));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteTaskList(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteTaskList(@PathVariable String id) {
         taskListService.deleteTaskList(id);
         return ResponseEntity.noContent().build();
     }

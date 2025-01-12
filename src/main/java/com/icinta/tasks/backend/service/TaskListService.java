@@ -21,7 +21,7 @@ public class TaskListService {
         return taskListRepository.findAll();
     }
 
-    public TaskList getTaskListById(Long id) {
+    public TaskList getTaskListById(String id) {
         return taskListRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("TaskList with id " + id + " not found"));
     }
@@ -30,13 +30,13 @@ public class TaskListService {
         return taskListRepository.save(taskList);
     }
 
-    public TaskList updateTaskList(Long id, TaskList updatedTaskList) {
+    public TaskList updateTaskList(String id, TaskList updatedTaskList) {
         TaskList existingTaskList = getTaskListById(id);
         existingTaskList.setName(updatedTaskList.getName());
         return taskListRepository.save(existingTaskList);
     }
 
-    public void deleteTaskList(Long id) {
+    public void deleteTaskList(String id) {
         taskListRepository.deleteById(id);
     }
 }

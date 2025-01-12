@@ -23,7 +23,7 @@ public class TaskService {
     }
 
     // Get a task by ID
-    public Task getTaskById(Long id) {
+    public Task getTaskById(String id) {
         return taskRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Task with id " + id + " not found"));
     }
@@ -34,7 +34,7 @@ public class TaskService {
     }
 
     // Update a task by ID
-    public Task updateTask(Long id, Task updatedTask) {
+    public Task updateTask(String id, Task updatedTask) {
         Task existingTask = getTaskById(id);
         existingTask.setName(updatedTask.getName());
         existingTask.setDescription(updatedTask.getDescription());
@@ -45,7 +45,7 @@ public class TaskService {
     }
 
     // Delete a task by ID
-    public void deleteTask(Long id) {
+    public void deleteTask(String id) {
         taskRepository.deleteById(id);
     }
 }
