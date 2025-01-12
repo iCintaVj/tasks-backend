@@ -23,7 +23,6 @@ public class ColumnService {
         for(Column column : columnRepository.findAll()) {
             columnNames.add(column.getName());
         }
-        System.out.println("Columns: " + columnNames.toString());
         return columnNames;
     }
 }
